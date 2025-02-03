@@ -1,81 +1,78 @@
-/* Basic styling */
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Navbar styling */
-nav {
-    background-color: #333;
-    padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
+/* Hero Section */
+.hero-section {
+    position: relative;
+    background-image: url('https://files.catbox.moe/crl4jw.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Profile section */
-#about {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.profile-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    text-align: center;
 }
 
-.profile-img {
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-logo {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 3px solid #333;
+    border: 3px solid #fff;
+    margin-bottom: 20px;
 }
 
-.profile-info {
-    text-align: left;
-    font-size: 18px;
-}
-
-.profile-info h1 {
-    font-size: 24px;
+.hero-content h1 {
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
-.profile-info a {
-    color: #007BFF;
+.hero-content p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.hero-content a {
+    color: #FFD700;
     text-decoration: none;
 }
 
-.profile-info a:hover {
+.hero-content a:hover {
     text-decoration: underline;
 }
 
-/* Projects section */
+/* Content Section */
+.content-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
 #projects {
     background-color: #fff;
-    padding: 40px;
-    margin-top: 40px;
-    text-align: center;
 }
 
 .project {
@@ -86,12 +83,8 @@ nav ul li a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact section */
 #contact {
     background-color: #fff;
-    padding: 40px;
-    margin-top: 40px;
-    text-align: center;
 }
 
 form {
@@ -118,4 +111,24 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info {
+        font-size: 16px;
+    }
+
+    .content-section {
+        padding: 40px 10px;
+    }
 }
