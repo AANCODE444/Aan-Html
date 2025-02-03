@@ -4,68 +4,80 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333;
 }
 
-/* Hero Section */
-.hero-section {
-    position: relative;
+/* Background Website */
+.background-website {
     background-image: url('https://files.catbox.moe/crl4jw.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 50px 0;
+}
+
+/* Kartu Nama */
+#profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px; /* Untuk menggeser kartu nama sedikit ke atas */
+}
+
+.card-container {
+    background-image: url('https://files.catbox.moe/ihuvqq.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     color: white;
+}
+
+.card-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.hero-section .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-logo {
+.profile-img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 3px solid #fff;
-    margin-bottom: 20px;
+    border: 3px solid white;
+    margin-right: 30px;
 }
 
-.hero-content h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+.card-info {
+    max-width: 400px;
 }
 
-.hero-content p {
+.card-info h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-info p {
     font-size: 18px;
-    margin: 5px 0;
+    margin: 8px 0;
 }
 
-.hero-content a {
+.card-info a {
     color: #FFD700;
     text-decoration: none;
 }
 
-.hero-content a:hover {
+.card-info a:hover {
     text-decoration: underline;
 }
 
-/* Content Section */
+/* Projects Section */
 .content-section {
     padding: 60px 20px;
     text-align: center;
@@ -115,17 +127,22 @@ button:hover {
 
 /* Media Queries for responsiveness */
 @media screen and (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 30px;
+    .card-container {
+        flex-direction: column;
     }
 
-    .hero-logo {
+    .card-info h1 {
+        font-size: 24px;
+    }
+
+    .profile-img {
         width: 120px;
         height: 120px;
     }
 
-    .profile-info {
+    .card-info {
         font-size: 16px;
+        text-align: center;
     }
 
     .content-section {
