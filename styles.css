@@ -8,7 +8,7 @@ body {
 
 /* Background Website */
 .background-website {
-    background-image: url('https://files.catbox.moe/crl4jw.jpg');
+    background-image: url('https://files.catbox.moe/ak49rs.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -24,9 +24,7 @@ body {
 }
 
 .card-container {
-    background-image: url('https://files.catbox.moe/ihuvqq.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Menambahkan latar belakang putih transparan */
     width: 90%;
     max-width: 800px;
     padding: 30px;
@@ -36,12 +34,13 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #333;
 }
 
 .card-content {
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 .profile-img {
@@ -53,14 +52,10 @@ body {
     margin-right: 30px;
 }
 
-.card-info {
-    max-width: 400px;
-}
-
 .card-info h1 {
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 26px;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .card-info p {
@@ -75,54 +70,6 @@ body {
 
 .card-info a:hover {
     text-decoration: underline;
-}
-
-/* Projects Section */
-.content-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-#projects {
-    background-color: #fff;
-}
-
-.project {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#contact {
-    background-color: #fff;
-}
-
-form {
-    width: 300px;
-    margin: 0 auto;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
 }
 
 /* Media Queries for responsiveness */
@@ -143,9 +90,5 @@ button:hover {
     .card-info {
         font-size: 16px;
         text-align: center;
-    }
-
-    .content-section {
-        padding: 40px 10px;
     }
 }
