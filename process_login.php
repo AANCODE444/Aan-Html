@@ -1,42 +1,41 @@
 <?php
-// Mulai sesi untuk menyimpan informasi login pengguna
-session_start();
+// Sambungkan ke database
+$host = 'localhost';
+$user = 'root'; // Sesuaikan dengan username database Anda
+$password = ''; // Sesuaikan dengan password database Anda
+$dbname = 'smm_global_dunia'; // Nama database
 
-// Contoh pengguna yang disimpan di database (array sederhana untuk ilustrasi)
-$users = [
-    ['email' => 'user@example.com', 'password' => 'password123'] // Password ini harus di-hash di aplikasi nyata
-];
+$conn = new mysqli($host, $user, $password, $dbname);
 
-// Ambil data dari form
+// Periksa koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
+// Tangkap data dari form
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Fungsi sederhana untuk mencocokkan email dan password
-function authenticate($email, $password, $users) {
-    foreach ($users as $user) {
-        // Memeriksa apakah email cocok
-        if ($user['email'] === $email) {
-            // Memeriksa apakah password cocok (jangan lupa menggunakan password_hash dan password_verify untuk keamanan!)
-            if ($user['password'] === $password) {
-                return true;
-            }
-        }
+// Periksa apakah email terdaftar
+$sql = "SELECT * FROM users WHERE email = '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    // Periksa password
+    if (password_verify($password, $row['password'])) {
+        // Mulai sesi
+        session_start();
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_name'] = $row['name'];
+        header("Location: index.html"); // Arahkan ke halaman utama
+        exit();
+    } else {
+        echo "Password salah! <a href='login.html'>Coba lagi</a>";
     }
-    return false;
+} else {
+    echo "Email tidak terdaftar! <a href='register.html'>Daftar di sini</a>";
 }
 
-// Autentikasi pengguna
-if (authenticate($email, $password, $users)) {
-    // Set session jika login berhasil
-    $_SESSION['loggedin'] = true;
-    $_SESSION['email'] = $email;
-    
-    // Redirect ke halaman dashboard atau halaman utama setelah login
-    header("Location: dashboard.php");
-    exit;
-} else {
-    // Jika gagal login, kembalikan ke halaman login dengan pesan kesalahan
-    header("Location: login.html?error=invalid_credentials");
-    exit;
-}
+$conn->close();
 ?>
