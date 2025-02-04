@@ -38,3 +38,30 @@
   </footer>
 </body>
 </html>
+
+<section class="order-form" id="order">
+  <div class="container">
+    <h2>Pesan Layanan Sekarang</h2>
+    <p>Pilih layanan yang Anda butuhkan dan masukkan detailnya.</p>
+    <form action="submit_order.php" method="POST">
+      <div class="form-group">
+        <label for="service">Layanan:</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Pilih Layanan</option>
+          <option value="followers">Tambah Followers</option>
+          <option value="likes">Tambah Likes</option>
+          <option value="views">Tambah Views</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="url">URL Akun atau Post:</label>
+        <input type="url" id="url" name="url" placeholder="Masukkan URL Anda" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Jumlah:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Masukkan jumlah" required>
+      </div>
+      <button type="submit" class="btn">Pesan Sekarang</button>
+    </form>
+  </div>
+</section>
