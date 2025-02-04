@@ -1,94 +1,73 @@
-/* Global Styles */
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Background Website */
-.background-website {
-    background-image: url('https://files.catbox.moe/ak49rs.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    padding: 50px 0;
+.header {
+  background: #2ecc71;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
 }
 
-/* Kartu Nama */
-#profile-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -50px; /* Untuk menggeser kartu nama sedikit ke atas */
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-.card-container {
-    background-color: rgba(255, 255, 255, 0.7); /* Menambahkan latar belakang putih transparan */
-    width: 90%;
-    max-width: 800px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: #333;
+.header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-.card-content {
-    display: flex;
-    align-items: center;
-    text-align: center;
+.header .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  color: #2ecc71;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.profile-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 3px solid white;
-    margin-right: 30px;
+.header .btn:hover {
+  background: #27ae60;
+  color: #fff;
 }
 
-.card-info h1 {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 15px;
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background: #f9f9f9;
 }
 
-.card-info p {
-    font-size: 18px;
-    margin: 8px 0;
+.stats .stat {
+  text-align: center;
 }
 
-.card-info a {
-    color: #FFD700;
-    text-decoration: none;
+.stats .stat h2 {
+  font-size: 2rem;
+  color: #2ecc71;
+  margin-bottom: 10px;
 }
 
-.card-info a:hover {
-    text-decoration: underline;
+.stats .stat p {
+  font-size: 1rem;
+  color: #333;
 }
 
-/* Media Queries for responsiveness */
-@media screen and (max-width: 768px) {
-    .card-container {
-        flex-direction: column;
-    }
-
-    .card-info h1 {
-        font-size: 24px;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .card-info {
-        font-size: 16px;
-        text-align: center;
-    }
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  font-size: 0.9rem;
 }
