@@ -3,94 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Halaman Utama - SMM Global Dunia</title>
+  <style>
+    /* Gaya CSS */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #2ecc71;
+    }
+
+    p {
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-login {
+      background: #3498db;
+    }
+
+    .btn-login:hover {
+      background: #2980b9;
+    }
+
+    .btn-register {
+      background: #e74c3c;
+    }
+
+    .btn-register:hover {
+      background: #c0392b;
+    }
+  </style>
 </head>
 <body>
-  <div class="auth-container">
-    <div class="form-container">
-      <h2>Login</h2>
-      <form action="login.php" method="POST">
-        <div class="form-group">
-          <label for="email">Email atau Nama:</label>
-          <input type="text" id="email" name="email" placeholder="Masukkan email atau nama Anda" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
-        </div>
-        <button type="submit" class="btn">Login</button>
-        <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
-      </form>
-    </div>
-  </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMM Nusantara</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <h1>SMM Panel Indonesia Termurah dan Terbaik</h1>
-      <p>Menyediakan berbagai layanan social media terlengkap dan berkualitas dengan harga paling terjangkau di Indonesia.</p>
-      <a href="#services" class="btn">Mulai Sekarang</a>
-    </div>
-  </header>
-
-  <section class="stats">
-    <div class="container">
-      <div class="stat">
-        <h2>38,650</h2>
-        <p>Pengguna Aktif</p>
-      </div>
-      <div class="stat">
-        <h2>6,555,245</h2>
-        <p>Pesanan Dikerjakan</p>
-      </div>
-      <div class="stat">
-        <h2>1,684</h2>
-        <p>Layanan Tersedia</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 SMM Nusantara. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-
-<section class="order-form" id="order">
   <div class="container">
-    <h2>Pesan Layanan Sekarang</h2>
-    <p>Pilih layanan yang Anda butuhkan dan masukkan detailnya.</p>
-    <form action="submit_order.php" method="POST">
-      <div class="form-group">
-        <label for="service">Layanan:</label>
-        <select id="service" name="service" required>
-          <option value="" disabled selected>Pilih Layanan</option>
-          <option value="followers">Tambah Followers</option>
-          <option value="likes">Tambah Likes</option>
-          <option value="views">Tambah Views</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="url">URL Akun atau Post:</label>
-        <input type="url" id="url" name="url" placeholder="Masukkan URL Anda" required>
-      </div>
-      <div class="form-group">
-        <label for="quantity">Jumlah:</label>
-        <input type="number" id="quantity" name="quantity" placeholder="Masukkan jumlah" required>
-      </div>
-      <button type="submit" class="btn">Pesan Sekarang</button>
-    </form>
+    <h1>Selamat Datang di SMM Global Dunia</h1>
+    <p>SMM Termurah dan Terbaik</p>
+    <p>Menyediakan berbagai layanan Social Media Terlengkap dan Berkualitas dengan harga paling terjangkau di Indonesia.</p>
+    <a href="login.html" class="btn btn-login">Login</a>
+    <a href="register.html" class="btn btn-register">Daftar</a>
   </div>
-</section>
+</body>
+</html>
