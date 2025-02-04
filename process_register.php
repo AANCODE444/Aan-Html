@@ -1,49 +1,30 @@
 <?php
-// Mulai sesi untuk menyimpan informasi register pengguna
-session_start();
-
-// Koneksi ke database (sesuaikan dengan detail koneksi Anda)
+// Sambungkan ke database
 $host = 'localhost';
-$dbname = 'nama_database'; // Ganti dengan nama database Anda
-$username = 'root';        // Ganti dengan username database Anda
-$password = '';            // Ganti dengan password database Anda
+$user = 'root'; // Sesuaikan dengan username database Anda
+$password = ''; // Sesuaikan dengan password database Anda
+$dbname = 'smm_global_dunia'; // Nama database
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Set error mode ke exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Koneksi ke database gagal: " . $e->getMessage());
+$conn = new mysqli($host, $user, $password, $dbname);
+
+// Periksa koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil data dari form pendaftaran
+// Tangkap data dari form
 $name = $_POST['name'];
 $email = $_POST['email'];
-$plain_password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
 
-// Hash password untuk keamanan
-$hashed_password = password_hash($plain_password, PASSWORD_DEFAULT);
+// Simpan data ke database
+$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
 
-// Periksa apakah email sudah terdaftar
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-$stmt->execute([$email]);
-if ($stmt->rowCount() > 0) {
-    // Jika email sudah terdaftar, kembalikan ke halaman register dengan pesan kesalahan
-    header("Location: register.html?error=email_exists");
-    exit;
-}
-
-// Jika email belum terdaftar, simpan data pengguna ke database
-$stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-if ($stmt->execute([$name, $email, $hashed_password])) {
-    // Jika pendaftaran berhasil, set session dan arahkan ke halaman login atau dashboard
-    $_SESSION['loggedin'] = true;
-    $_SESSION['email'] = $email;
-    header("Location: dashboard.php");
-    exit;
+if ($conn->query($sql) === TRUE) {
+    echo "Pendaftaran berhasil! <a href='login.html'>Login di sini</a>";
 } else {
-    // Jika terjadi kesalahan, kembalikan ke halaman register
-    header("Location: register.html?error=registration_failed");
-    exit;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$conn->close();
 ?>
